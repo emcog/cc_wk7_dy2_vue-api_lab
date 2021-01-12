@@ -13,9 +13,9 @@
         <!-- <button v-on:click="calculateWorldPopulation">Show world population</button> -->
         <span>world population is </span>{{ calculateWorldPopulation }}</span>
         <span>The world's countries are</span>
-        <ul>
-            <li v-for="country in countries">{{ country.name }}</li>
-        </ul>
+        <select v-on:change = "handleSelectedCountry">
+            <option v-for="(country, index) in countries" value="{{ index }}">{{ country.name }}</option>
+        </select>
     </div>
 </body>
 </html>

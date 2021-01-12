@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
         el: '#app',
         data: {
             countries: [],
-            worldPopulation: 0
+            worldPopulation: 0,
+            selectedCountry: ""
         },
         mounted(){
             this.fetchCountries()
@@ -16,17 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         return (runningTotal + countries.population);
                     }, 0);
                 },
-            allCountryNames : function() {
-                return this.countries.forEach(country => {
-                    return this.countries.name;
-                });
-            }
         },
         methods: {
             fetchCountries: function(){
                 fetch("https://restcountries.eu/rest/v2/all")
                     .then(response => response.json())
                         .then(data => this.countries = data)
+            },
+            handleSelectedCountry: function(){
+
             }
         }
     })
